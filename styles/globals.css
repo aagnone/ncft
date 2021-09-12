@@ -14,3 +14,16 @@ a {
 * {
   box-sizing: border-box;
 }
+
+@media only screen and (min-width: 768px) {
+  .mask {
+    -webkit-mask-image: url(../public/headermask.png);
+    mask-image: url(../public/headermask.png);
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100%;
+    mask-size: 100%;
+  }
+}
