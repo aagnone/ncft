@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { auth, storage, STATE_CHANGED } from '../lib/firebase';
+import FloatingInput from './FloatingInput';
+import Form from './Form';
 import Loader from './Loader';
 
 // Uploads images to Firebase Storage
@@ -7,6 +9,7 @@ export default function ImageUploader() {
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [downloadURL, setDownloadURL] = useState(null);
+  const [name, setName] = useState('')
 
   // Creates a Firebase Upload Task
   const uploadFile = async (e) => {
@@ -15,7 +18,7 @@ export default function ImageUploader() {
     const extension = file.type.split('/')[1];
 
     // Makes reference to the storage bucket location
-    const ref = storage.ref(`uploads/${auth.currentUser.uid}/${Date.now()}.${extension}`);
+    const ref = storage.ref(`uploads/${name}.${extension}`);
     setUploading(true);
 
     // Starts the upload
@@ -43,6 +46,9 @@ export default function ImageUploader() {
 
       {!uploading && (
         <>
+          <Form>
+            <FloatingInput type="text" name="name" value={name} onchange={e => setName(e.target.value)} />
+          </Form>
           <label className="btn">
             📸 Upload Img
             <input type="file" onChange={uploadFile} accept="image/x-png,image/gif,image/jpeg,application/pdf,application/vnd.ms-excel" />
@@ -50,7 +56,7 @@ export default function ImageUploader() {
         </>
       )}
 
-      {downloadURL && <code className="upload-snippet">{`![alt](${downloadURL})`}</code>}
+      {downloadURL && <code className="upload-snippet">{`[Document Download](${downloadURL})`}</code>}
     </div>
   );
 }

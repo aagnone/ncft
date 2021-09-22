@@ -11,7 +11,7 @@ import SmallHeader from '../../components/SmallHeader'
 import Section from '../../components/Section'
 import styles from '../../styles/Admin.module.scss'
 import { UserContext } from '../../context/context'
-
+import ImageUploader from '../../components/ImageUploader'
 const AdminPostEdit = () => {
   return (
     <ProtectedRoute>
@@ -46,6 +46,7 @@ function PostManager() {
 
           <aside>
             <h3>Tools</h3>
+            <ImageUploader />
             <button className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main" onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview'}</button>
             <Link href={`/${post.username}/${post.slug}`} passHref>
               <button className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main">Live view</button>

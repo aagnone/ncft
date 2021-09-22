@@ -7,7 +7,7 @@ const AdminNav = () => {
             <li className="hover:underline"><Link href="/admin">Admin Home</Link></li>
             <li className="hover:underline"><Link href="/admin/verify_accounts">Authorize Accounts</Link></li>
             <li className="hover:underline"><Link href="/admin/site_info">Update Site Info</Link></li>
-            <li className="hover:underline"><Link href="/admin">Add/Remove/Update FAQ</Link></li>
+            <li className="hover:underline"><Link href="/admin/faq">Add FAQ</Link></li>
       </ul>
     );
 };

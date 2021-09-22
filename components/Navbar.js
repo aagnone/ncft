@@ -5,14 +5,14 @@ import Link from 'next/link'
 import Logo from '../public/logo2.png'
 import { firebaseLib } from '../lib/firebase'
 import classnames from 'classnames'
-import { UserContext } from '../context/context'
+import { SiteDataContext, UserContext } from '../context/context'
 import { useInfo } from '../lib/hooks'
 
 const Navbar = () => {
   const { user, isVerified, isAdmin, username } = useContext(UserContext)
   const [pos, setPos] = useState(false)
   const [open, setOpen] = useState(false)
-  const {email, phone} = useInfo();
+  const {email, phone} = useContext(SiteDataContext);
 
   useEffect(() => {
     document.addEventListener('scroll', (e) => {
@@ -56,11 +56,15 @@ const Navbar = () => {
               <li className="mx-2">
                 <Link href="/documents">Documents</Link>
               </li>
-              <li className="mx-2">
-                <Link href="/contact">Contact</Link>
-              </li>
+    
               <li className="mx-2">
                 <Link href="/calendar">Calendar</Link>
+              </li>
+              <li className="mx-2">
+                <Link href="/faq">FAQ</Link>
+              </li>
+              <li className="mx-2">
+                <Link href="/contact">Contact</Link>
               </li>
               <li className="mx-2">
                 <Link href="/survey">Survey</Link>
@@ -136,10 +140,13 @@ const Navbar = () => {
               <Link href="/documents">Documents</Link>
             </li>
             <li className="mx-2">
-              <Link href="/contact">Contact</Link>
+              <Link href="/calendar">Calendar</Link>
             </li>
             <li className="mx-2">
-              <Link href="/calendar">Calendar</Link>
+              <Link href="/calendar">FAQ</Link>
+            </li>
+            <li className="mx-2">
+              <Link href="/contact">Contact</Link>
             </li>
             <li className="mx-2">
               <Link href="/survey">Survey</Link>
