@@ -1,0 +1,62 @@
+@font-face {
+    font-family: "flaticon";
+    src: url("./flaticon.ttf?123455d8eb002f8eca9fdad4ea927efa") format("truetype"),
+url("./flaticon.woff?123455d8eb002f8eca9fdad4ea927efa") format("woff"),
+url("./flaticon.woff2?123455d8eb002f8eca9fdad4ea927efa") format("woff2"),
+url("./flaticon.eot?123455d8eb002f8eca9fdad4ea927efa#iefix") format("embedded-opentype"),
+url("./flaticon.svg?123455d8eb002f8eca9fdad4ea927efa#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.flaticon-college:before {
+    content: "\f101";
+}
+.flaticon-book:before {
+    content: "\f102";
+}
+.flaticon-science:before {
+    content: "\f103";
+}
+.flaticon-books:before {
+    content: "\f104";
+}
+.flaticon-class:before {
+    content: "\f105";
+}
+.flaticon-light-bulb:before {
+    content: "\f106";
+}
+.flaticon-library:before {
+    content: "\f107";
+}
+.flaticon-hand-up:before {
+    content: "\f108";
+}
+.flaticon-notebook:before {
+    content: "\f109";
+}
+.flaticon-scholarship:before {
+    content: "\f10a";
+}
+.flaticon-exam:before {
+    content: "\f10b";
+}
+.flaticon-like:before {
+    content: "\f10c";
+}
+.flaticon-clock:before {
+    content: "\f10d";
+}
+.flaticon-user:before {
+    content: "\f10e";
+}

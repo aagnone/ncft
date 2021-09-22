@@ -1,13 +1,34 @@
-export default function Home() {
+import BlogPreview from '../components/BlogPreview'
+import Header from '../components/Header'
+import Mission from '../components/Mission'
+import Section from '../components/Section'
+import {db, postToJSON} from '../lib/firebase'
+const LIMIT = 5
+
+export default function Home(props) {
   return (
-    <div className="relative bg-white">
-      <div className="mask w-2/3 h-auto absolute top-0 right-0">
-        <img
-          className="w-full"
-          src="https://samartheme2.vercel.app/images/main-slider/slider2/pic1.jpg"
-          alt=""
-        />
-      </div>
+    <div className="overflow-hidden">
+      <Header />
+      <Section>
+        <BlogPreview posts={props.posts}/>
+      </Section>
+      <Section fullWidth>
+        <Mission />
+      </Section>
     </div>
-  );
+  )
+}
+
+export async function getServerSideProps(context) {
+  const postsQuery = db
+    .collectionGroup('posts')
+    .where('published', '==', true)
+    .orderBy('createdAt', 'desc')
+    .limit(LIMIT);
+
+  const posts = (await postsQuery.get()).docs.map(postToJSON);
+
+  return {
+    props: { posts }, // will be passed to the page component as props
+  };
 }

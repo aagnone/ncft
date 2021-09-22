@@ -1,0 +1,324 @@
+@import './variables';
+@import './mixins';
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.mask {
+  @include media('md') {
+    -webkit-mask-image: url(../public/headermask.png);
+    mask-image: url(../public/headermask.png);
+    -webkit-mask-position: center center;
+    mask-position: center center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 97%;
+    mask-size: 97%;
+  }
+}
+
+.gradient {
+  background: rgba(41, 45, 118, 0.6);
+  background: linear-gradient(
+    90deg,
+    rgba(41, 45, 118, 0.6) 0%,
+    rgba(75, 79, 156, 0.7) 35%,
+    rgba(249, 236, 63, 0.3) 100%
+  );
+  background-position-y: -10%;
+}
+
+.gradientSmall {
+  background: linear-gradient(90deg, rgba(41, 45, 118, 0.7) 0, rgba(249, 236, 63, 0.6) 130%, rgba(41, 45, 118, 0.7));
+}
+
+.small-dropshadow {
+  box-shadow: 0 0 10px 4px rgb(31 66 135 / 10%);
+}
+
+.main-br {
+  border-radius: 10px;
+}
+
+:after,
+:before {
+  margin: 0;
+  padding: 0;
+}
+
+.bottomBanner {
+  &:after {
+    background-image: url(../public/curveBottom.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: contain;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 0;
+  }
+}
+
+.beforeGradient {
+  &:after {
+    background: rgba(41, 45, 118, 0.5);
+    background: linear-gradient(
+      90deg,
+      rgba(41, 45, 118, 0.3) 0%,
+      rgba(75, 79, 156, 0.3) 35%,
+      rgba(249, 236, 63, 0.2) 100%
+    );
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    z-index: 10;
+  }
+}
+
+@media (max-width: 1200px) {
+  .containers {
+    max-width: 1199px;
+  }
+}
+@media (max-width: 992px) {
+  .containers {
+    max-width: 960px;
+  }
+}
+@media (max-width: 768px) {
+  .containers {
+    max-width: 720px;
+  }
+}
+@media (max-width: 576px) {
+  .containers {
+    max-width: 540px;
+  }
+}
+
+.icon-style {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: 15px 15px 30px;
+  transition: all 100ms;
+  border-radius: 100%;
+  display: inline-block;
+  text-align: center;
+  i {
+    font-size: 40px;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    left: -13px;
+    top: -15px;
+    background-image: url(../public/iconPatternInvert.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
+.card-style:hover .icon-style:before {
+  background-image: url(../public/iconPattern.png);
+}
+
+.light-bg {
+  background-image: url(../public/bg2.png);
+}
+
+.banner-image {
+  width: 45vw;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 1400px) {
+  .banner-image {
+    width: 65vw;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .banner-image {
+    position: relative;
+    width: 100%;
+  }
+}
+
+.footer:before {
+  content: '';
+  background-image: url(../public/footerCurve.png);
+  background-position: 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+}
+
+.new-shadow {
+  box-shadow: 0 0 10px 4px rgb(31 66 135 / 10%);
+  background-image: url(../public/footersubscribeimage.png);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.main-shadow {
+  box-shadow: 0 0 10px 4px rgb(31 66 135 / 10%);
+}
+
+.blue-circle {
+  animation-delay: 0.1s;
+}
+.green-circle {
+  animation-delay: 0.2s;
+}
+.red-circle {
+  animation-delay: 0.3s;
+}
+
+/* Icon 3 */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Icon 1 */
+
+#nav-icon1,
+#nav-icon2,
+#nav-icon3,
+#nav-icon4 {
+  width: 40px;
+  height: 45px;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+#nav-icon1 span,
+#nav-icon3 span,
+#nav-icon4 span {
+  display: block;
+  position: absolute;
+  height: 6px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+/* Icon 3 */
+
+#nav-icon3 span:nth-child(1) {
+  top: 0px;
+}
+
+#nav-icon3 span:nth-child(2),
+#nav-icon3 span:nth-child(3) {
+  top: 10px;
+}
+
+#nav-icon3 span:nth-child(4) {
+  top: 21px;
+}
+
+#nav-icon3.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+#nav-icon3.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#nav-icon3.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+#nav-icon3.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+}
+
+.image-container {
+  width: 100%;
+  & > div {
+    position: unset !important;
+  }
+  div {
+    .image {
+      object-fit: contain;
+      width: 100% !important;
+      position: relative !important;
+      height: unset !important;
+    }
+  }
+}
+
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+input:focus-within ~ label {
+  @apply text-main;
+}
+textarea:focus-within ~ label,
+textarea:not(:placeholder-shown) ~ label {
+  @apply transform scale-75 -translate-y-6;
+}
+
+textarea:focus-within ~ label {
+  @apply text-main;
+}
