@@ -4,6 +4,7 @@ import SmallHeader from '../components/SmallHeader'
 import { storage } from '../lib/firebase'
 import ProtectedRoute from '../components/ProtectedRoute'
 import Link from 'next/link'
+import Head from 'next/head'
 
 const Documents = () => {
   const [documents, setDocuments] = useState([])
@@ -30,6 +31,9 @@ const Documents = () => {
   }
   return (
     <ProtectedRoute>
+      <Head>
+        <title>New Castle Federation of Teachers - Documents</title>
+      </Head>
       <SmallHeader page="Documents" />
       <Section>
         <div className="w-full">

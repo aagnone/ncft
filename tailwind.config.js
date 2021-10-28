@@ -16,13 +16,22 @@ module.exports = {
         transparent: 'transparent',
         main: {
           light: 'rgba(41, 45, 118, .2)',
-          DEFAULT: '#292d76',
+          DEFAULT: '#292D76',
         },
         secondary: {
           light: 'rgba(249, 236, 63, .4)',
           lightest: 'rgba(249, 236, 63, .2)',
-          DEFAULT: '#f9ec3f',
+          DEFAULT: '#F7EB38',
         },
+        dark: {
+          DEFAULT: '#1B1D4B'
+        },
+        light: {
+          DEFAULT: '#FDF7B0'
+        },
+        'accent-light': {
+          DEFAULT: '#A6C4E9'
+        }
       },
       borderRadius: {
         huge: '0 100px 100px 0',

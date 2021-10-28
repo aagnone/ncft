@@ -1,7 +1,6 @@
 import React from 'react'
 import Card from './Card'
 import TextCard from './TextCard'
-import db, { postToJSON } from '../lib/firebase'
 
 const BlogPreview = ({ posts }) => {
   return (

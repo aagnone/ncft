@@ -3,6 +3,7 @@ import { firebaseLib, db } from '../lib/firebase'
 import SmallHeader from '../components/SmallHeader'
 import Section from '../components/Section'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
 
 const Register = () => {
   const router = useRouter()
@@ -21,29 +22,35 @@ const Register = () => {
         .auth()
         .createUserWithEmailAndPassword(email, passwordOne)
         .then((authUser) => {
-          db.collection('users').doc(authUser.user.uid).set({
-            isAdmin: false,
-            isVerified: false,
-            firstName,
-            lastName,
-            username: firstName+lastName
-          })
-          db.collection('username').doc(firstName+lastName).set({
-            uid: authUser.user.uid
-          })
+          db.collection('users')
+            .doc(authUser.user.uid)
+            .set({
+              isAdmin: false,
+              isVerified: false,
+              firstName,
+              lastName,
+              username: firstName + lastName,
+            })
+          db.collection('username')
+            .doc(firstName + lastName)
+            .set({
+              uid: authUser.user.uid,
+            })
           router.push('/created_account')
         })
         .catch((error) => {
           setError(error.message)
         })
     else setError('Password do not match')
-
   }
 
   return (
     <>
       <SmallHeader page="Register" />
       <Section>
+        <Head>
+          <title>New Castle Federation of Teachers - Register</title>
+        </Head>
         <div className="w-full pb-64 -mt-32">
           <form className="max-w-lg rounded-lg shadow-xl overflow-hidden p-6 space-y-10 mx-auto w-full">
             <div className="relative border-b-2 focus-within:border-main">

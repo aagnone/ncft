@@ -7,6 +7,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { UserContext, SiteDataContext } from '../context/context'
 import { useInfo, useUserData } from '../lib/hooks'
+import Head from 'next/head'
 
 function MyApp({ Component, pageProps }) {
   const userData = useUserData()
@@ -15,6 +16,9 @@ function MyApp({ Component, pageProps }) {
     <UserContext.Provider value={userData}>
       <SiteDataContext.Provider value={siteData}>
         <Navbar />
+        <Head>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" />
+        </Head>
         <Component {...pageProps} />
         <ToastContainer
           position="bottom-center"

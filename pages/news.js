@@ -5,6 +5,7 @@ import SmallHeader from '../components/SmallHeader'
 import PostFeed from '../components/PostFeed'
 import Loader from '../components/Loader'
 import { db, postToJSON, fromMillis } from '../lib/firebase'
+import Head from 'next/head'
 
 const LIMIT = 4
 
@@ -52,6 +53,9 @@ const News = (props) => {
   return (
     <ProtectedRoute>
       <SmallHeader page="News" />
+      <Head>
+        <title>New Castle Federation of Teachers - News</title>
+      </Head>
       <Section>
         <div className="w-full p-4 md:p-0">
           {posts ? (

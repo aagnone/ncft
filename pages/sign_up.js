@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { auth } from '../lib/firebase'
-
+import Head from 'next/head'
 import { db } from '../lib/firebase'
 
 const SignUp = () => {
@@ -14,22 +14,26 @@ const SignUp = () => {
   //Optional error handling
   const [error, setError] = useState(null)
 
-
   const onSubmit = (event) => {
     setError(null)
     if (passwordOne === passwordTwo)
-      auth.createUserWithEmailAndPassword(email, passwordOne)
+      auth
+        .createUserWithEmailAndPassword(email, passwordOne)
         .then((authUser) => {
-          db.collection('users').doc(authUser.user.uid).set({
-            isAdmin: false,
-            isVerified: false,
-            firstName,
-            lastName,
-            username: firstName+lastName
-          })
-          db.collection('username').doc(firstName+lastName).set({
-            uid: authUser.user.uid
-          })
+          db.collection('users')
+            .doc(authUser.user.uid)
+            .set({
+              isAdmin: false,
+              isVerified: false,
+              firstName,
+              lastName,
+              username: firstName + lastName,
+            })
+          db.collection('username')
+            .doc(firstName + lastName)
+            .set({
+              uid: authUser.user.uid,
+            })
           router.push('/logged_in')
         })
         .catch((error) => {
@@ -41,6 +45,9 @@ const SignUp = () => {
 
   return (
     <div className="text-center" style={{ padding: '40px 0px' }}>
+      <Head>
+        <title>New Castle Federation of Teachers - Sign Up</title>
+      </Head>
       <form style={{ maxWidth: '400px', margin: 'auto' }} onSubmit={onSubmit}>
         {error && <p className="text-red-400">{error}</p>}
         <label htmlFor="signUpEmail">Email</label>

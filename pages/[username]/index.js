@@ -3,6 +3,7 @@ import ProtectedRoute from '../../components/ProtectedRoute'
 import SmallHeaderPage from '../../components/SmallHeaderPage'
 import PostFeed from '../../components/PostFeed'
 import { postToJSON, getUserWithUsername } from '../../lib/firebase'
+import Head from 'next/head'
 
 export async function getServerSideProps({ query }) {
   const { username } = query
@@ -38,8 +39,11 @@ const UserProfilePage = ({ userdata, posts }) => {
   return (
     <ProtectedRoute>
       <SmallHeaderPage page={`${userdata.username}'s Posts`}>
+        <Head>
+          <title>New Castle Federation of Teachers - Blog Post</title>
+        </Head>
         <div className="w-full">
-            <PostFeed posts={posts} />
+          <PostFeed posts={posts} />
         </div>
       </SmallHeaderPage>
     </ProtectedRoute>

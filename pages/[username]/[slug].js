@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import SmallHeader from '../../components/SmallHeader'
 import Section from '../../components/Section'
@@ -9,6 +9,7 @@ import ReactMarkdown from 'react-markdown'
 import '../../styles/Markdown.module.scss'
 import Link from 'next/link'
 import { UserContext } from '../../context/context'
+import Head from 'next/head'
 
 export async function getStaticProps({ params }) {
   const { username, slug } = params
@@ -58,12 +59,15 @@ const PostPage = (props) => {
   const post = realtimePost || props.post
   const createdAt = typeof post?.createdAt === 'number' ? new Date(props.post.createdAt) : post.createdAt.toDate()
   const newdate = createdAt.toDateString()
-  const {isAdmin} = useContext(UserContext)
+  const { isAdmin } = useContext(UserContext)
 
   return (
     <>
       <SmallHeader page={props.post.title} />
       <Section>
+        <Head>
+          <title>New Castle Federation of Teachers - Blog Post</title>
+        </Head>
         <div className="w-full">
           <div className="w-full relative">
             <div className={'image-container rounded-xl overflow-hidden mb-2'}>
@@ -80,11 +84,13 @@ const PostPage = (props) => {
             <div className="flex flex-1 items-center">
               <UserIcon className="text-main h-6 w-6 mr-2" />
               <p className="mr-2">{post?.username}</p>
-              {isAdmin && <Link href={`/admin/${props.post.slug}`} passHref>
-                <button className="bg-main bg-gradient-to-r from-main to-secondary-light border-0 p-2 px-4 rounded-2xl hover:from-secondary-light hover:to-main mt-2 text-white">
-                  Edit Post
-                </button>
-              </Link>}
+              {isAdmin && (
+                <Link href={`/admin/${props.post.slug}`} passHref>
+                  <button className="bg-main bg-gradient-to-r from-main to-secondary-light border-0 p-2 px-4 rounded-2xl hover:from-secondary-light hover:to-main mt-2 text-white">
+                    Edit Post
+                  </button>
+                </Link>
+              )}
             </div>
             <div className="flex">
               <HeartIcon className="text-red-600 h-6 w-6 mr-2 transform hover:scale-150 transition-all" />{' '}

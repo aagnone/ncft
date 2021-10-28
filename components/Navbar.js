@@ -66,9 +66,6 @@ const Navbar = () => {
               <li className="mx-2">
                 <Link href="/contact">Contact</Link>
               </li>
-              <li className="mx-2">
-                <Link href="/survey">Survey</Link>
-              </li>
               {user ? (
                 <>
                   <li className="mx-2">
@@ -147,9 +144,6 @@ const Navbar = () => {
             </li>
             <li className="mx-2">
               <Link href="/contact">Contact</Link>
-            </li>
-            <li className="mx-2">
-              <Link href="/survey">Survey</Link>
             </li>
             {user ? (
               <>

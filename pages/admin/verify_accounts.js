@@ -44,7 +44,7 @@ const VerifyAccounts = () => {
                   <div className="w-full flex justify-between" key={doc.id}>
                     <p>{doc.data().username}</p>
                     <button
-                      className="bg-main bg-gradient-to-r from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main"
+                      className="bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main"
                       onClick={() => updateAccount(doc, 'isVerified')}
                     >
                       Verify Account
@@ -64,7 +64,7 @@ const VerifyAccounts = () => {
                   <div className="w-full flex justify-between" key={doc.id}>
                     <p>{doc.data().username}</p>
                     <button
-                      className="bg-main bg-gradient-to-r from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main"
+                      className="bg-main bg-gradient-to-r from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 text-white hover:from-secondary-light hover:to-main"
                       onClick={() => updateAccount(doc, 'isAdmin')}
                     >
                       Make Admin
