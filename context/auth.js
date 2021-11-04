@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext, createContext } from 'react'
 import nookies from 'nookies'
 import { firebaseLib, db } from '../lib/firebase'
-import 'firebase/compat/auth'
+import 'Firebase/compat/auth'
 
 const AuthContext = createContext({})
 
