@@ -16,9 +16,9 @@ export default function Home(props) {
       <Section>
         <BlogPreview posts={props.posts} />
       </Section>
-      <Section fullWidth>
+      {/* <Section fullWidth>
         <Mission />
-      </Section>
+      </Section> */}
     </div>
   )
 }

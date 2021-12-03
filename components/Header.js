@@ -14,11 +14,10 @@ const Header = () => {
         <Hxl bold color="white">New Castle Federation of Teachers</Hxl>
 
         <p className="text-white py-3 inline-block leading-7">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, amet quam? Molestias illo enim veritatis
-          facere sunt corrupti unde illum praesentium quod minima omnis, accusamus alias dolorem quis necessitatibus
-          exercitationem. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, amet quam? Molestias
-          illo enim veritatis facere sunt corrupti unde illum praesentium quod minima omnis, accusamus alias dolorem
-          quis necessitatibus exercitationem.
+            The American Federation of Teachers is a union of professionals that champions fairness; democracy; economic
+            opportunity; and high-quality public education, healthcare and public services for our students, their
+            families and our communities. We are committed to advancing these principles through community engagement,
+            organizing, collective bargaining and political activism, and especially through the work our members do
         </p>
       </div>
       {/* <div className="banner-image mask md:absolute top-0 right-0 -z-1">
