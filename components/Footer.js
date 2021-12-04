@@ -35,7 +35,7 @@ const Footer = () => {
           <ul>
             <li><Link href="/news">News</Link></li>
             <li><Link href="/documents">Documents</Link></li>
-            {/* <li><Link href="/calendar">Calendar</Link></li> */}
+            <li><Link href="/calendar">Calendar</Link></li>
             <li><Link href="/faq">Faq</Link></li>
           </ul>
         </div>

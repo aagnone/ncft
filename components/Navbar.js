@@ -57,9 +57,9 @@ const Navbar = () => {
                 <Link href="/documents">Documents</Link>
               </li>
     
-              {/* <li className="mx-2">
+              <li className="mx-2">
                 <Link href="/calendar">Calendar</Link>
-              </li> */}
+              </li>
               <li className="mx-2">
                 <Link href="/faq">FAQ</Link>
               </li>
@@ -136,9 +136,9 @@ const Navbar = () => {
             <li className="mx-2">
               <Link href="/calendar">Calendar</Link>
             </li>
-            {/* <li className="mx-2">
-              <Link href="/calendar">FAQ</Link>
-            </li> */}
+            <li className="mx-2">
+              <Link href="/faq">FAQ</Link>
+            </li>
             {user ? (
               <>
                 <li className="mx-2">
