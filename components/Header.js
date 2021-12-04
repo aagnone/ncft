@@ -14,7 +14,7 @@ const Header = () => {
         <Hxl bold color="white">New Castle Federation of Teachers</Hxl>
 
         <p className="text-white py-3 inline-block leading-7">
-            The American Federation of Teachers is a union of professionals that champions fairness; democracy; economic
+            The New Castle Federation of Teachers is a union of professionals that champions fairness; democracy; economic
             opportunity; and high-quality public education, healthcare and public services for our students, their
             families and our communities. We are committed to advancing these principles through community engagement,
             organizing, collective bargaining and political activism, and especially through the work our members do

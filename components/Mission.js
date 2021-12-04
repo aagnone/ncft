@@ -21,7 +21,7 @@ const Mission = () => {
         </Fade>
         <Fade delay={300}>
           <p className="leading-7 my-3">
-            The American Federation of Teachers is a union of professionals that champions fairness; democracy; economic
+            The New Castle Federation of Teachers is a union of professionals that champions fairness; democracy; economic
             opportunity; and high-quality public education, healthcare and public services for our students, their
             families and our communities. We are committed to advancing these principles through community engagement,
             organizing, collective bargaining and political activism, and especially through the work our members do
