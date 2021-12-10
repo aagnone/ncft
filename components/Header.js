@@ -26,11 +26,11 @@ const Header = () => {
       <div className="hidden lg:block absolute bottom-8 right-1/4">
         <Image className="w-1/2 h-1/2" src={fullLogo} alt="Landscape picture" width={249} height={249} />
       </div> */}
-      <div className="mask md:absolute -top-2 -right-8 md:opacity-70">
+      {/* <div className="mask md:absolute -top-2 -right-8 md:opacity-70">
         <Image className={"h-auto max-w-full"} src={headerImage} alt="Landscape picture" width={821} height={824} />
-      </div>
-      <div className="hidden lg:block absolute bottom-8 right-1/4 ">
-        <Image className="w-1/2 h-1/2" src={fullLogo} alt="Landscape picture" width={249} height={249} />
+      </div> */}
+      <div className="hidden lg:block absolute top-1/3 right-44 ">
+        <Image className="w-1/2 h-1/2" src={fullLogo} alt="Landscape picture" width={331} height={331} />
       </div>
       <div className="scroll-down hidden md:block"></div>
     </div>
