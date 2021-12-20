@@ -14,7 +14,7 @@ const Faq = () => {
         <Head>
           <title>New Castle Federation of Teachers - FAQ</title>
         </Head>
-        <div className="w-full p-8 flex justify-around">
+        <div className="w-full p-8 flex justify-around flex-wrap">
           {data?.map((item, i) => {
             return <FaqItem data={item} key={i} />
           })}

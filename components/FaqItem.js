@@ -3,7 +3,7 @@ import classnames from 'classnames'
 const FaqItem = ({ data }) => {
   const [open, setOpen] = useState(false)
   return (
-    <div className="w-5/12">
+    <div className="w-5/12 m-4">
       <button className="w-full main-shadow text-main rounded-lg overflow-hidden" onClick={() => setOpen(!open)}>
         <p className={classnames('w-full transition-all p-4', { 'bg-blue-200': open})}>{data.title}</p>
       </button>
