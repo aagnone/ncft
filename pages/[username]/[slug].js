@@ -10,6 +10,7 @@ import '../../styles/Markdown.module.scss'
 import Link from 'next/link'
 import { UserContext } from '../../context/context'
 import Head from 'next/head'
+import ProtectedRoute from '../../components/ProtectedRoute'
 
 export async function getStaticProps({ params }) {
   const { username, slug } = params
@@ -62,7 +63,7 @@ const PostPage = (props) => {
   const { isAdmin } = useContext(UserContext)
 
   return (
-    <>
+    <ProtectedRoute>
       <SmallHeader page={props.post.title} />
       <Section>
         <Head>
@@ -102,7 +103,7 @@ const PostPage = (props) => {
           </div>
         </div>
       </Section>
-    </>
+    </ProtectedRoute>
   )
 }
 
