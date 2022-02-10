@@ -6,7 +6,7 @@ import Hxl from './elements/Hxl'
 const Header = () => {
   return (
     <div className="relative bg-main bg-mesh md:h-screen w-screen bottomBanner mb-24">
-      <div className="pt-20 md:pt-0 w-3/4 md:w-1/2 lg:w-1/3 md:h-screen flex justify-center flex-col z-40 left-10 md:left-1/5 relative md:pb-0 pb-4 md:transform md:-translate-y-8">
+      <div className="pt-20 md:pt-0 w-3/4 md:w-1/2 lg:w-1/3 md:h-screen flex justify-center flex-col z-40 left-10 md:left-1/5 relative md:pb-0 pb-10 md:transform md:-translate-y-8">
         <p className="p-3 px-6 rounded-lg bg-accent-light text-main opacity-70 font-bold inline-block w-max mb-6">
           Its your union too
         </p>

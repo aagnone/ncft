@@ -27,6 +27,74 @@ const Navbar = () => {
 
   return (
     <>
+      <nav style={{zIndex: 9999}} className={classnames('navbar-mobile bg-main bg-mesh h-screen absolute top-0 bottom-0 w-1/2 lg:hidden', { 'show-nav': open})}>
+        <div className="w-full h-full flex flex-col">
+          <div className="flex flex-col items-center justify-center">
+            <Link href="/" passHref>
+              <a>
+                <Image src={Logo} alt="New Castle Federation of Teachers Logo" width={91} height={77} />
+              </a>
+            </Link>
+          </div>
+          <ul className="flex flex-col w-full text-white">
+            <li className="mx-2">
+              <Link href="/news">News</Link>
+            </li>
+            <li className="mx-2">
+              <Link href="/documents">Documents</Link>
+            </li>
+            <li className="mx-2">
+                <Link href="/faq">FAQ</Link>
+            </li>
+            {user ? (
+              <>
+                <li>
+                  <Link
+                    href={{
+                      pathname: `/${username}`,
+                    }}
+                    passHref
+                  >
+                    <a>Profile</a>
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={async () => {
+                      await firebaseLib.auth().signOut()
+                      window.location.href = '/'
+                    }}
+                  >
+                    Sign Out
+                  </button>
+                </li>
+              </>
+            ) : (
+              <div className="flex justify-center">
+                <li>
+                  <Link href="/register" passHref>
+                    <button className="text-white mr-3">
+                      Register
+                    </button>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/login">Login</Link>
+                </li>
+              </div>
+            )}
+            {isAdmin && (
+              <li>
+                <Link href="/admin" passHref>
+                  <button className="bg-main bg-gradient-to-r from-main to-secondary-light border-0 rounded-2xl -mt-2 hover:from-secondary-light text-white hover:to-main">
+                    Admin Console
+                  </button>
+                </Link>
+              </li>
+            )}
+          </ul>
+        </div>
+      </nav>
       <nav
         className={`w-3/5 bg-transparent absolute top-0 z-50 pt-2 ${pos ? 'hidden' : 'block'}`}
         style={{ left: '50%', transform: 'translateX(-50%)' }}
