@@ -7,6 +7,7 @@ import Link from 'next/link'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState()
   return (
     <>
       <SmallHeader page="Log In" />
@@ -48,10 +49,11 @@ const Login = () => {
                   .auth()
                   .signInWithEmailAndPassword(email, password)
                   .then(() => {
+                    setError('')
                     window.location.href = '/'
                   })
                   .catch((error) => {
-                    console.log(error)
+                    setError(error)
                   })
               }}
               disabled={email === '' || password === ''}
@@ -60,10 +62,18 @@ const Login = () => {
             </button>
           </form>
           <div className="max-w-lg mx-auto mt-2 pl-4">
+            <p className="ma">{error ? error.message : ''}</p>
+          </div>
+          <div className="max-w-lg mx-auto mt-2 pl-4">
             <p className="ma">
               No Account?{' '}
               <Link href="/register" passHref>
                 <a className="text-main underline">Sign Up!</a>
+              </Link>
+            </p>
+            <p className="ma">
+              <Link href="/forgot_password" passHref>
+                <a className="text-main underline">Forgot Password?</a>
               </Link>
             </p>
           </div>

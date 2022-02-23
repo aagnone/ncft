@@ -38,9 +38,9 @@ const ForgotPassword = () => {
                   })
                   .catch((e) => console.log(e))
               }}
-              disabled={email === '' || password === ''}
+              disabled={email === ''}
               className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main">
-              Log In
+              Send Email Reset
             </button>
           </form>
           <div className="max-w-lg mx-auto mt-2 pl-4">
