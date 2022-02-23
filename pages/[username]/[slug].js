@@ -28,7 +28,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: { post, path },
-    revalidate: 5000,
+    revalidate: 5000
   }
 }
 
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
   const paths = snapshot.docs.map((doc) => {
     const { slug, username } = doc.data()
     return {
-      params: { username, slug },
+      params: { username, slug }
     }
   })
 
@@ -49,7 +49,7 @@ export async function getStaticPaths() {
     //   { params: { username, slug }}
     // ],
     paths,
-    fallback: 'blocking',
+    fallback: 'blocking'
   }
 }
 
@@ -76,8 +76,7 @@ const PostPage = (props) => {
             </div>
             <div
               className="bg-main text-white absolute top-3 left-3 rounded-lg py-4 px-4"
-              style={{ writingMode: 'tb-rl' }}
-            >
+              style={{ writingMode: 'tb-rl' }}>
               <p>{newdate}</p>
             </div>
           </div>

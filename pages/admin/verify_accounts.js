@@ -7,17 +7,17 @@ import AdminNav from '../../components/AdminNav'
 
 const VerifyAccounts = () => {
   const [value, loading, error] = useCollection(db.collection('users').where('isVerified', '==', false), {
-    snapshotListenOptions: { includeMetadataChanges: true },
+    snapshotListenOptions: { includeMetadataChanges: true }
   })
   const [valueAdmin, loadingAdmin, errorAdmin] = useCollection(db.collection('users').where('isAdmin', '==', false), {
-    snapshotListenOptions: { includeMetadataChanges: true },
+    snapshotListenOptions: { includeMetadataChanges: true }
   })
 
   const updateAccount = (user, field) => {
     const userRef = db.collection('users').doc(user.id)
     return userRef
       .update({
-        [field]: true,
+        [field]: true
       })
       .then(() => {
         console.log('Document successfully updated!')
@@ -45,8 +45,7 @@ const VerifyAccounts = () => {
                     <p>{doc.data().username}</p>
                     <button
                       className="bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main"
-                      onClick={() => updateAccount(doc, 'isVerified')}
-                    >
+                      onClick={() => updateAccount(doc, 'isVerified')}>
                       Verify Account
                     </button>
                   </div>
@@ -65,8 +64,7 @@ const VerifyAccounts = () => {
                     <p>{doc.data().username}</p>
                     <button
                       className="bg-main bg-gradient-to-r from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 text-white hover:from-secondary-light hover:to-main"
-                      onClick={() => updateAccount(doc, 'isAdmin')}
-                    >
+                      onClick={() => updateAccount(doc, 'isAdmin')}>
                       Make Admin
                     </button>
                   </div>

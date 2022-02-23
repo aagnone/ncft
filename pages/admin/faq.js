@@ -17,7 +17,7 @@ const Faq = () => {
       .doc(title)
       .set({
         title,
-        content,
+        content
       })
       .then(() => {
         toast('Submitted Faq')

@@ -1,3 +1,4 @@
+import React from 'react'
 import BlogPreview from '../components/BlogPreview'
 import Header from '../components/Header'
 import Mission from '../components/Mission'
@@ -33,6 +34,6 @@ export async function getServerSideProps(context) {
   const posts = (await postsQuery.get()).docs.map(postToJSON)
 
   return {
-    props: { posts }, // will be passed to the page component as props
+    props: { posts } // will be passed to the page component as props
   }
 }

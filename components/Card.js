@@ -14,10 +14,9 @@ const Card = ({ post, isShifted }) => {
             className={classnames(
               'cursor-pointer lg:mb-0 mb-8 max-w-1/3 relative z-10 hover:bg-main md:text-main p-4 hover:text-white rounded-2xl small-dropshadow transition-all duration-100 card-style transform',
               {
-                'lg:-translate-y-10': isShifted,
+                'lg:-translate-y-10': isShifted
               }
-            )}
-          >
+            )}>
             <div className="icon-style bg-accent-light transition-all duration-100">
               <i className="flaticon-college transition-all duration-100" />
             </div>

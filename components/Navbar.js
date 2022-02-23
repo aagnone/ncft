@@ -12,7 +12,7 @@ const Navbar = () => {
   const { user, isVerified, isAdmin, username } = useContext(UserContext)
   const [pos, setPos] = useState(false)
   const [open, setOpen] = useState(false)
-  const {email, phone} = useContext(SiteDataContext);
+  const { email, phone } = useContext(SiteDataContext)
 
   useEffect(() => {
     document.addEventListener('scroll', (e) => {
@@ -27,7 +27,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav style={{zIndex: 9999}} className={classnames('navbar-mobile bg-main bg-mesh h-screen absolute top-0 bottom-0 w-1/2 lg:hidden', { 'show-nav': open})}>
+      <nav
+        style={{ zIndex: 9999 }}
+        className={classnames('navbar-mobile bg-main bg-mesh h-screen absolute top-0 bottom-0 w-1/2 lg:hidden', {
+          'show-nav': open
+        })}>
         <div className="w-full h-full flex flex-col">
           <div className="flex flex-col items-center justify-center">
             <Link href="/" passHref>
@@ -44,17 +48,16 @@ const Navbar = () => {
               <Link href="/documents">Documents</Link>
             </li>
             <li className="mx-2">
-                <Link href="/faq">FAQ</Link>
+              <Link href="/faq">FAQ</Link>
             </li>
             {user ? (
               <>
                 <li>
                   <Link
                     href={{
-                      pathname: `/${username}`,
+                      pathname: `/${username}`
                     }}
-                    passHref
-                  >
+                    passHref>
                     <a>Profile</a>
                   </Link>
                 </li>
@@ -63,8 +66,7 @@ const Navbar = () => {
                     onClick={async () => {
                       await firebaseLib.auth().signOut()
                       window.location.href = '/'
-                    }}
-                  >
+                    }}>
                     Sign Out
                   </button>
                 </li>
@@ -73,9 +75,7 @@ const Navbar = () => {
               <div className="flex justify-center">
                 <li>
                   <Link href="/register" passHref>
-                    <button className="text-white mr-3">
-                      Register
-                    </button>
+                    <button className="text-white mr-3">Register</button>
                   </Link>
                 </li>
                 <li>
@@ -97,8 +97,7 @@ const Navbar = () => {
       </nav>
       <nav
         className={`w-3/5 bg-transparent absolute top-0 z-50 pt-2 ${pos ? 'hidden' : 'block'}`}
-        style={{ left: '50%', transform: 'translateX(-50%)' }}
-      >
+        style={{ left: '50%', transform: 'translateX(-50%)' }}>
         <div className="hidden lg:block">
           <div className="flex py-3">
             <div className="flex mr-6 align-center">
@@ -124,7 +123,7 @@ const Navbar = () => {
               <li className="mx-2">
                 <Link href="/documents">Documents</Link>
               </li>
-    
+
               {/* <li className="mx-2">
                 <Link href="/calendar">Calendar</Link>
               </li> */}
@@ -136,10 +135,9 @@ const Navbar = () => {
                   <li className="mx-2">
                     <Link
                       href={{
-                        pathname: `/${username}`,
+                        pathname: `/${username}`
                       }}
-                      passHref
-                    >
+                      passHref>
                       <a>Profile</a>
                     </Link>
                   </li>
@@ -148,8 +146,7 @@ const Navbar = () => {
                       onClick={async () => {
                         await firebaseLib.auth().signOut()
                         window.location.href = '/'
-                      }}
-                    >
+                      }}>
                       Sign Out
                     </button>
                   </li>
@@ -184,8 +181,7 @@ const Navbar = () => {
       <nav
         className={`hidden z-50 px-6 bg-white w-full shadow-xl animate-fade-in-down fixed top-0 left-0 ${
           pos ? 'md:block' : 'hidden'
-        }`}
-      >
+        }`}>
         <div className="w-3/5 flex justify-between items-center m-auto">
           <div className="flex items-center">
             <Link href="/" passHref>
@@ -212,10 +208,9 @@ const Navbar = () => {
                 <li className="mx-2">
                   <Link
                     href={{
-                      pathname: `/${username}`,
+                      pathname: `/${username}`
                     }}
-                    passHref
-                  >
+                    passHref>
                     <a>Profile</a>
                   </Link>
                 </li>
@@ -224,8 +219,7 @@ const Navbar = () => {
                     onClick={async () => {
                       await firebaseLib.auth().signOut()
                       window.location.href = '/'
-                    }}
-                  >
+                    }}>
                     Sign Out
                   </button>
                 </li>

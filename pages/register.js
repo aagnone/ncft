@@ -29,12 +29,12 @@ const Register = () => {
               isVerified: false,
               firstName,
               lastName,
-              username: firstName + lastName,
+              username: firstName + lastName
             })
           db.collection('username')
             .doc(firstName + lastName)
             .set({
-              uid: authUser.user.uid,
+              uid: authUser.user.uid
             })
           router.push('/created_account')
         })
@@ -125,8 +125,7 @@ const Register = () => {
             </div>
             <button
               onClick={(e) => onSubmit(e)}
-              className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main"
-            >
+              className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main">
               Create an Account
             </button>
           </form>

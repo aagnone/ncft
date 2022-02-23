@@ -9,7 +9,7 @@ import { toast } from 'react-toastify'
 import { SiteDataContext } from '../../context/context'
 import ProtectedRoute from '../../components/ProtectedRoute'
 
-const SiteInfo = () =>  {
+const SiteInfo = () => {
   const data = useContext(SiteDataContext)
   const [phone, setPhone] = useState(data.phone)
   const [email, setEmail] = useState(data.email)
@@ -42,18 +42,8 @@ const SiteInfo = () =>  {
             <h2 className="text-2xl my-8">Update information</h2>
             {data && (
               <Form wfull action={(e) => handleSubmit(e)}>
-                <FloatingInput
-                  type="text"
-                  name="phone"
-                  value={phone}
-                  onchange={(e) => setPhone(e.target.value)}
-                />
-                <FloatingInput
-                  type="text"
-                  name="email"
-                  value={email}
-                  onchange={(e) => setEmail(e.target.value)}
-                />
+                <FloatingInput type="text" name="phone" value={phone} onchange={(e) => setPhone(e.target.value)} />
+                <FloatingInput type="text" name="email" value={email} onchange={(e) => setEmail(e.target.value)} />
                 <FloatingInput
                   type="text"
                   name="address"
@@ -66,12 +56,7 @@ const SiteInfo = () =>  {
                   value={mission}
                   onchange={(e) => setMission(e.target.value)}
                 />
-                <FloatingInput
-                  type="text"
-                  name="lead"
-                  value={lead}
-                  onchange={(e) => setLead(e.target.value)}
-                />
+                <FloatingInput type="text" name="lead" value={lead} onchange={(e) => setLead(e.target.value)} />
                 <button className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main">
                   Submit
                 </button>

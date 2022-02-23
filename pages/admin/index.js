@@ -19,11 +19,11 @@ const index = () => {
       <SmallHeader page="Admin" />
       <Section>
         <div className="w-full">
-            <AdminNav />
-            <div className="my-12 w-full flex justify-between items-center flex-col md:flex-row">
-              <h2 className="text-3xl text-center flex-1">Create new Post</h2>
-              <CreateNewPost />
-            </div>
+          <AdminNav />
+          <div className="my-12 w-full flex justify-between items-center flex-col md:flex-row">
+            <h2 className="text-3xl text-center flex-1">Create new Post</h2>
+            <CreateNewPost />
+          </div>
           <PostList />
         </div>
       </Section>
@@ -71,7 +71,7 @@ const CreateNewPost = () => {
       content: '# hello world!',
       createdAt: serverTimestamp(),
       updatedAt: serverTimestamp(),
-      heartCount: 0,
+      heartCount: 0
     }
 
     await ref.set(data)
@@ -83,10 +83,7 @@ const CreateNewPost = () => {
   }
 
   return (
-    <form
-      onSubmit={createPost}
-      className="mt-4 max-w-lg rounded-lg shadow-xl overflow-hidden p-6 space-y-10 w-full"
-    >
+    <form onSubmit={createPost} className="mt-4 max-w-lg rounded-lg shadow-xl overflow-hidden p-6 space-y-10 w-full">
       <div className="relative border-b-2 focus-within:border-main">
         <input
           value={title}
@@ -104,8 +101,7 @@ const CreateNewPost = () => {
       </p>
       <button
         disabled={!isValid}
-        className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main"
-      >
+        className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main">
         Create Post
       </button>
     </form>

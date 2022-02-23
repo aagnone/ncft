@@ -24,7 +24,7 @@ const AdminPostEdit = () => {
 }
 
 function PostManager() {
-  const {user} = useContext(UserContext)
+  const { user } = useContext(UserContext)
   const [preview, setPreview] = useState(false)
 
   const router = useRouter()
@@ -40,16 +40,28 @@ function PostManager() {
           <section className="w-full">
             <h1>{post.title}</h1>
             <p className="mb-4">ID: {post.slug}</p>
-            <a className="bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mb-3 hover:from-secondary-light hover:to-main" href="https://www.markdownguide.org/basic-syntax/" target="_blank" rel="noreferrer">Link to Markdown Tutorial</a>
+            <a
+              className="bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mb-3 hover:from-secondary-light hover:to-main"
+              href="https://www.markdownguide.org/basic-syntax/"
+              target="_blank"
+              rel="noreferrer">
+              Link to Markdown Tutorial
+            </a>
             <PostForm postRef={postRef} defaultValues={post} preview={preview} />
           </section>
 
           <aside>
             <h3>Tools</h3>
             <ImageUploader />
-            <button className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main" onClick={() => setPreview(!preview)}>{preview ? 'Edit' : 'Preview'}</button>
+            <button
+              className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main"
+              onClick={() => setPreview(!preview)}>
+              {preview ? 'Edit' : 'Preview'}
+            </button>
             <Link href={`/${post.username}/${post.slug}`} passHref>
-              <button className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main">Live view</button>
+              <button className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main">
+                Live view
+              </button>
             </Link>
           </aside>
         </>
@@ -65,7 +77,7 @@ function PostForm({ defaultValues, postRef, preview }) {
     await postRef.update({
       content,
       published,
-      updatedAt: serverTimestamp(),
+      updatedAt: serverTimestamp()
     })
 
     reset({ content, published })
@@ -76,8 +88,7 @@ function PostForm({ defaultValues, postRef, preview }) {
   return (
     <form
       className="rounded-lg shadow-xl overflow-hidden p-6 space-y-10 mx-auto w-full"
-      onSubmit={handleSubmit(updatePost)}
-    >
+      onSubmit={handleSubmit(updatePost)}>
       {preview && (
         <div className="card prose lg:prose-xl max-w-full p-4">
           <ReactMarkdown>{watch('content')}</ReactMarkdown>
@@ -89,8 +100,7 @@ function PostForm({ defaultValues, postRef, preview }) {
           <textarea
             className="block w-full appearance-none focus:outline-none bg-transparent"
             name="content"
-            {...register('content')}
-          ></textarea>
+            {...register('content')}></textarea>
           <label htmlFor="content" className="absolute top-0 -z-1 duration-300 origin-0">
             Content
           </label>
@@ -101,7 +111,9 @@ function PostForm({ defaultValues, postRef, preview }) {
           <label>Published</label>
         </fieldset>
 
-        <button type="submit" className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main">
+        <button
+          type="submit"
+          className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl mt-2 hover:from-secondary-light hover:to-main">
           Save Changes
         </button>
       </div>

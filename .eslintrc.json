@@ -1,3 +1,23 @@
 {
-  "extends": "next/core-web-vitals"
+  "rules": {
+    "react/prop-types": 0,
+    "prettier/prettier": ["error",{
+      "semi": false,
+    "tabWidth": 2,
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "jsxBracketSameLine": true,
+    "endOfLine":"auto"}
+    ]
+  },
+  "extends": [
+    "next/core-web-vitals", 
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:prettier/react"
+  ],
+  "plugins": [
+    "prettier"
+  ]
 }

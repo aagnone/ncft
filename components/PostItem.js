@@ -54,7 +54,9 @@ const PostItem = ({ post, itemIndex, admin = false }) => {
       </Link>
       {user && isAdmin && (
         <>
-          <Link passHref href={`/admin/${post.slug}`}><button className="bg-main text-blue-300 px-2 py-1 rounded-md absolute bottom-5 left-5">Edit Post</button></Link>
+          <Link passHref href={`/admin/${post.slug}`}>
+            <button className="bg-main text-blue-300 px-2 py-1 rounded-md absolute bottom-5 left-5">Edit Post</button>
+          </Link>
           <button className="bg-main text-blue-300 px-2 py-1 rounded-md absolute bottom-5 right-5">Delete Post</button>
         </>
       )}

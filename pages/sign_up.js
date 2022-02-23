@@ -1,3 +1,4 @@
+import React from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import { auth } from '../lib/firebase'
@@ -27,12 +28,12 @@ const SignUp = () => {
               isVerified: false,
               firstName,
               lastName,
-              username: firstName + lastName,
+              username: firstName + lastName
             })
           db.collection('username')
             .doc(firstName + lastName)
             .set({
-              uid: authUser.user.uid,
+              uid: authUser.user.uid
             })
           router.push('/logged_in')
         })

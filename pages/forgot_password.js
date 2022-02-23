@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { firebaseLib } from '../lib/firebase'
-import 'firebase/auth'
+import { auth } from '../lib/firebase'
 import SmallHeader from '../components/SmallHeader'
 import Section from '../components/Section'
 import Link from 'next/link'
-const Login = () => {
+
+const ForgotPassword = () => {
+  const [message, setMessage] = useState('')
   const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+
   return (
     <>
       <SmallHeader page="Log In" />
@@ -24,35 +25,18 @@ const Login = () => {
                 id="emailAddress"
               />
               <label htmlFor="email" className="absolute top-0 -z-1 duration-300 origin-0">
-                Email
-              </label>
-            </div>
-            <div className="relative border-b-2 focus-within:border-main">
-              <input
-                type="password"
-                name="password"
-                placeholder=" "
-                className="block w-full appearance-none focus:outline-none bg-transparent"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                id="password"
-              />
-              <label htmlFor="password" className="absolute top-0 -z-1 duration-300 origin-0">
-                Password
+                Forgot Email
               </label>
             </div>
             <button
               onClick={async (e) => {
                 e.preventDefault()
-                await firebaseLib
-                  .auth()
-                  .signInWithEmailAndPassword(email, password)
+                await auth
+                  .sendPasswordResetEmail(email)
                   .then(() => {
-                    window.location.href = '/'
+                    setMessage('If your account exists, a link has been sent to your email.')
                   })
-                  .catch((error) => {
-                    console.log(error)
-                  })
+                  .catch((e) => console.log(e))
               }}
               disabled={email === '' || password === ''}
               className="w-full bg-main bg-gradient-to-r text-white from-main to-secondary-light border-0 p-2 px-4 rounded-2xl -mt-2 hover:from-secondary-light hover:to-main">
@@ -60,12 +44,7 @@ const Login = () => {
             </button>
           </form>
           <div className="max-w-lg mx-auto mt-2 pl-4">
-            <p className="ma">
-              No Account?{' '}
-              <Link href="/register" passHref>
-                <a className="text-main underline">Sign Up!</a>
-              </Link>
-            </p>
+            <p className="ma">{message}</p>
           </div>
         </div>
       </Section>
@@ -73,4 +52,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default ForgotPassword

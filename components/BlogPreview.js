@@ -8,7 +8,7 @@ const BlogPreview = ({ posts }) => {
       <div className="lg:grid grid-cols-3 gap-4 mx-2">
         <TextCard />
         {posts?.map((post, i) => {
-          return (<Card key={post.slug} post={post} isShifted={i === 2} />)
+          return <Card key={post.slug} post={post} isShifted={i === 2} />
         })}
       </div>
     </div>

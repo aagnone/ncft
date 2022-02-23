@@ -1,3 +1,4 @@
+import React from 'react'
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.scss'
 import '../styles/flaticon.css'
@@ -12,6 +13,7 @@ import Head from 'next/head'
 function MyApp({ Component, pageProps }) {
   const userData = useUserData()
   const siteData = useInfo()
+
   return (
     <UserContext.Provider value={userData}>
       <SiteDataContext.Provider value={siteData}>

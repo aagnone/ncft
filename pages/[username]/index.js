@@ -12,7 +12,7 @@ export async function getServerSideProps({ query }) {
 
   if (!userDoc) {
     return {
-      notFound: true,
+      notFound: true
     }
   }
 
@@ -32,7 +32,7 @@ export async function getServerSideProps({ query }) {
   }
 
   return {
-    props: { userdata, posts }, // will be passed to the page component as props
+    props: { userdata, posts } // will be passed to the page component as props
   }
 }
 const UserProfilePage = ({ userdata, posts }) => {
