@@ -7,28 +7,20 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 const Documents = () => {
-  const [documents, setDocuments] = useState([])
+  const [data, setData] = useState([]);
   useEffect(() => {
-    storage
-      .ref('uploads')
-      .listAll()
-      .then((res) => {
-        res.items.forEach((docRef) => {
-          getURL(docRef)
+    storage.ref().child('uploads/').listAll()
+      .then(res => {
+        res.items.forEach((item) => {
+          setData(arr => [...arr, item.name]);
         })
+      })
+      .catch(err => {
+        alert(err.message);
       })
     return
   }, [])
 
-  const getURL = (docRef) => {
-    docRef.getDownloadURL().then((url) => {
-      const item1 = url.split('https://firebasestorage.googleapis.com/v0/b/ncft-52970.appspot.com/o/uploads%2F')
-      const name = item1[1].split('?')
-      let tempArray = []
-      tempArray = [...tempArray, { name: name[0], url }]
-      setDocuments(tempArray)
-    })
-  }
   return (
     <ProtectedRoute>
       <Head>
@@ -38,10 +30,12 @@ const Documents = () => {
       <Section>
         <div className="w-full">
             <h2 className="font-bold mb-4 text-2xl">Click links to Download (view)</h2>
-          {documents?.map((doc) => (
-            <Link passHref key={doc.name} href={doc.url}>
-              <a className="underline mb-3">{doc.name}</a>
-            </Link>
+          {data?.map((doc) => (
+            <p>
+              <Link style={{display: 'block'}} passHref key={doc} href={'https://firebasestorage.googleapis.com/v0/b/ncft-52970.appspot.com/o/uploads%2F'+doc+'?alt=media&token=def42aa6-7bbf-4293-a119-ed7a80e12672'}>
+                <a target="_blank" className="underline mb-3">{doc}</a>
+              </Link>
+            </p>
           ))}
         </div>
       </Section>
